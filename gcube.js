@@ -359,6 +359,56 @@ var r=t.element;r.style.WebkitTransformStyle="preserve-3d",r.style.MozTransformS
     }
   });
   
+  // Add some extra functionality to the Cubelet class.
+  ERNO.extend(ERNO.Cubelet.prototype, {
+    /** Returns true iff this cubelet is in the provided group */
+    isInGroup: function(group) {
+      // TODO
+    },
+    
+    /** Return a Direction representing the direction in which the facelet is currently oriented.
+      The facelet is also referenced by a direction. Specifically, it is referenced by its normal
+      direction when the cube is in the solved state. */
+    getFaceletDirection: function(solvedDirection) {
+      // TODO
+    },
+    
+    /** Determines if the cubelet is in its correct solved position, regardless of orientation. */
+    isInCorrectPosition: function() {
+      // TODO
+    },
+    
+    /** Determines if the cubelet's facelet specified by the given direction (corresponding to the
+      direction of the facelet when this cubelet is in the solved state) is currently facing that direction.
+      Unless isSupercube is a true value, this function will always return true for center face cubelets. */
+    isCorrectlyOrientedRelativeTo: function(direction, isSupercube) {
+      // TODO
+    },
+    
+    /** Determines if the individual cubelet is in its solved position and correctly oriented.
+      If this function is passed a true value, then it will only consider center cubelets as solved
+      if they are properly oriented about their respective face's axis. This should only be used
+      if there is some visual indicator of each center cubelet's orientation about its axis. */
+    isSolved: function(isSupercube) {
+      // TODO
+    }
+  });
+  
+  // Add some extra functionality to the Group class.
+  ERNO.extend(ERNO.Group.prototype, {
+    /** Override the isSolved function to, like, work correctly. It shouldn't require a face direction.
+      For compatibility, there is a first argument which is ignored. If the second argument is truthy, then
+      consider the cube a supercube. */
+    isSolved: function(anything, isSupercube) {
+      // TODO
+    },
+    
+    /** Same as Cubelet.isCorrectlyOrientedRelativeTo, except applied to all cubelets in this group. */
+    isCorrectlyOrientedRelativeTo: function(direction, isSupercube) {
+      // TODO
+    }
+  });
+  
   // Expose a function to do the standard setup on a single g-cube.
   setupGcube = function(gcube) {
     var $gcube = $(gcube);
